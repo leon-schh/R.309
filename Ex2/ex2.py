@@ -1,5 +1,5 @@
 try:
-    nom = "testerger .txt" 
+    nom = "test .txt" 
 
     with open(nom, 'r') as fichier:
         contenu = fichier.read()
