@@ -71,7 +71,7 @@ def send(server):
 try:
     server.connect((host, port))
 except ConnectionRefusedError:
-    print("404 Server not online")
+    print("404 Serveur hors-ligne")
 else:
     envoi = threading.Thread(target=send, args=[server])
     print(conn)
@@ -81,10 +81,10 @@ else:
         try:
             message = server.recv(1024).decode()
         except ConnectionResetError:
-            print("server forcibly disconnected")
+            print("Le serveur s'est arrêté.")
             connected = False
         except ConnectionAbortedError:
-            print("server forcibly disconnected")
+            print("Le serveur s'est arrêté.")
             connected = False
         else:
             if message == text_server_stop:
