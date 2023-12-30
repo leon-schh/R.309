@@ -648,6 +648,70 @@ class UnbanUserDialog(QDialog):
         layout.addWidget(self.combo_users)
         layout.addWidget(self.btn_unban)
 
+        # Configuration du style
+        self.setStyleSheet("""
+            QWidget {
+                background-color: #000; 
+                color: #eb232d; /* Couleur du texte par défaut */
+                font-family: monospace;
+                font-size : 20px;
+            }
+            
+            QTextEdit, QLineEdit {
+                background-color: #3b3c47; 
+                color: #fff; 
+                border: 1px solid #eb232d; /* Bordure autour des zones de texte */
+                padding: 5px; 
+            }
+
+            QPushButton {
+                border: 5px solid #eb232d;
+                border-radius: 8px
+                border: 5px solid #eb232d
+                padding 1px 5px;
+                min-width: 120px;
+                min-height: 35px;
+                background-color: #eb232d;
+                color: #000; 
+            }
+
+            QPushButton:hover {
+                background-color: #eb232d;
+            }
+
+        """)
+        self.combo_users.setStyleSheet("""
+            QComboBox {
+                background-color: #000;
+                color: #eb232d;
+                border: 1px solid #ccc;
+                padding: 5px;
+            }
+
+            QComboBox::drop-down {
+                subcontrol-origin: padding;
+                subcontrol-position: right;
+                width: 20px;
+                border-left: 1px solid #ccc;
+            }
+
+            QComboBox::down-arrow {
+                color : #fff;
+                width: 5px;                        
+            }
+
+            QComboBox QAbstractItemView {
+                background-color: #000;
+                color: #fff;
+                border: 1px solid #ccc;
+            }
+
+            QComboBox QAbstractItemView::item:selected {
+                background-color: #eb232d 15%;  /* Couleur de fond pour l'élément sélectionné */
+                color: #eb232d;  /* Couleur du texte pour l'élément sélectionné */
+            }
+        """)
+
     def populate_users(self):
         # Obtient la liste des utilisateurs bannis depuis la base de données
         cursor.execute("SELECT username FROM client WHERE banned = 'yes'")

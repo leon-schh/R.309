@@ -193,7 +193,7 @@ class LoginWindow(QDialog):
 
             if result:
                 # Vérifie si l'utilisateur est banni
-                if result[2] == 'yes':
+                if result[3] == 'yes':
                     self.show_error_message("Vous êtes banni.")
                     return False
                 # L'utilisateur n'est pas banni
@@ -359,8 +359,6 @@ class ClientApp(QWidget):
     # Permet d'envoyer une commande de déconnexion, qui signale au serveur que le client se déconnecte 
         if self.client_socket:
             disconnect_command = '/disconnect'
-            command = "DISCONNECT"
-            self.client_socket.send(command.encode())
             self.client_socket.send(disconnect_command.encode('utf-8'))
             self.client_socket.close()  # Close the client socket
     
