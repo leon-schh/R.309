@@ -67,32 +67,6 @@ INSERT INTO `client` VALUES ('test','test','192.168.1.86','no','ON');
 UNLOCK TABLES;
 
 --
--- Table structure for table `client_channel`
---
-
-DROP TABLE IF EXISTS `client_channel`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `client_channel` (
-  `client_name` varchar(45) DEFAULT NULL,
-  `channel_id` varchar(45) DEFAULT NULL,
-  KEY `client_name` (`client_name`),
-  KEY `channel_id` (`channel_id`),
-  CONSTRAINT `client_channel_ibfk_1` FOREIGN KEY (`client_name`) REFERENCES `client` (`username`),
-  CONSTRAINT `client_channel_ibfk_2` FOREIGN KEY (`channel_id`) REFERENCES `salon` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `client_channel`
---
-
-LOCK TABLES `client_channel` WRITE;
-/*!40000 ALTER TABLE `client_channel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `client_channel` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `client_salon`
 --
 
@@ -153,4 +127,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-31  0:15:26
+-- Dump completed on 2023-12-31 15:10:48
